@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TipoCambio.Views.ResultPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding ResultViewModel}" Margin="18">
+            <Label Text="Bienvenido al visor de de tipo de cambio histórico de Dólar a Pesos Mexicanos. &#10; Elige fecha de inicio y fin para consultar" 
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   FontSize="Medium"/>
+            <Label Text="Fecha Inicio" />
+            <DatePicker Date="{Binding InitDate}" />
+            <Label Text="Fecha Final"
+                   FontSize="Caption"/>
+            <DatePicker Date="{Binding EndDate}" />
+            <ListView ItemsSource="{Binding DataList}" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                    FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    TextColor="Blue"
+                                    Text="{Binding Date}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Text="{Binding Data, StringFormat='${0:F2}'}" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Consultar" Command="{Binding SubmitCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

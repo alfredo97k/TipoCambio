@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:infra="clr-namespace:TipoCambio.Infrastructure"
+             x:Class="TipoCambio.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <infra:InstanceLocator x:Key="Locator" />
+        </ResourceDictionary>
+        
+        <x:String x:Key="Token">65b0cc067312678aac34b15e5e0e40fc31971bbb9b53cdc752a74284110b52b1</x:String>
+        <x:String x:Key="Url">https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF63528/datos/</x:String>
+        
+    </Application.Resources>
+</Application>
