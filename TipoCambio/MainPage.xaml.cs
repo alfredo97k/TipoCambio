@@ -26,7 +26,7 @@ namespace TipoCambio
 
         protected async void NavigateToResult()
         {
-            await Task.Delay(1);
+            await Task.Delay(2000);
             Application.Current.MainPage = new NavigationPage(new ResultPage());
 
         }
